@@ -108,8 +108,8 @@ public class BoatFacade {
         return new BoatsDTO(boat);
     }
 
-//    public static void main(String[] args) {
-//        BoatFacade boatFacade = BoatFacade.getBoatFacade(EMF_Creator.createEntityManagerFactory());
-//        boatFacade.editBoat(new BoatsDTO(88L,"test","test","test"));
-//    }
+    public static void main(String[] args) {
+        BoatFacade boatFacade = BoatFacade.getBoatFacade(EMF_Creator.createEntityManagerFactory());
+        boatFacade.createBoat(new BoatsDTO("test", "test", "test"));
+    }
 }
