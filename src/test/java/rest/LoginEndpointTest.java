@@ -97,7 +97,8 @@ public class LoginEndpointTest {
     private static void login(String role, String password) {
         String json = String.format("{username: \"%s\", password: \"%s\"}", role, password);
         securityToken = given()
-                .contentType("application/json")
+                .contentType("application/json" +
+                        "")
                 .body(json)
                 //.when().post("/api/login")
                 .when().post("/login")

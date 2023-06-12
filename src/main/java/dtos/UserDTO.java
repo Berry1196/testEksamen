@@ -14,7 +14,7 @@ import java.util.List;
 @ToString
 public class UserDTO {
 
-    private Long id;
+
     private String user_name;
     private String user_pass;
     private String address;
@@ -27,7 +27,6 @@ public class UserDTO {
     // Constructors, getters, and setters
 
     public UserDTO(User user) {
-        this.id = user.getId();
         this.user_name = user.getUser_name();
         this.user_pass = user.getUserPass();
         this.address = user.getAddress();

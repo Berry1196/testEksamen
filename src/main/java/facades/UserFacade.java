@@ -31,11 +31,11 @@ public class UserFacade {
         return instance;
     }
 
-    public User getVerifiedUser(String username, String password) throws AuthenticationException {
+    public User getVerifiedUser(String user_name, String password) throws AuthenticationException {
         EntityManager em = emf.createEntityManager();
         User user;
         try {
-            user = em.find(User.class, username);
+            user = em.find(User.class, user_name);
             if (user == null || !user.verifyPassword(password)) {
                 throw new AuthenticationException("Invalid user name or password");
             }
@@ -58,5 +58,6 @@ public class UserFacade {
         }
         return new UserDTO(user);
     }
+
 
 }

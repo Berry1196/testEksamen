@@ -20,10 +20,8 @@ import org.mindrot.jbcrypt.BCrypt;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "user_name", length = 25)
@@ -52,12 +50,13 @@ public class User implements Serializable {
     private List<Role> roleList = new ArrayList<>();
 
    @JoinTable(name = "user_trips", joinColumns = {
-            @JoinColumn(name = "user_id", referencedColumnName = "id")}, inverseJoinColumns = {
+            @JoinColumn(name = "user_name", referencedColumnName = "user_name")}, inverseJoinColumns = {
             @JoinColumn(name = "trip_id", referencedColumnName = "id")})
     @ManyToMany
     private List<Trip> tripList = new ArrayList<>();
 
-    public User(String user_name, String user_pass, String address, String phone, String email, String birthYear, String gender) {
+    public User( String user_name, String user_pass, String address, String phone, String email, String birthYear, String gender) {
+
         this.user_name = user_name;
         this.userPass = BCrypt.hashpw(user_pass, BCrypt.gensalt());
         this.address = address;
