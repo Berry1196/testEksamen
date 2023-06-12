@@ -5,7 +5,7 @@
  */
 package facades;
 
-import entities.Exercise;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -23,9 +23,7 @@ public class Populator {
 
         em.getTransaction().begin();
 
-        Exercise exercise = new Exercise();
 
-        em.persist(exercise);
 
         em.getTransaction().commit();
     }
